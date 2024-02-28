@@ -12,4 +12,4 @@
 //     console.log(`DB connected ${name}`);
 // })("Daksh");
 
-( () => (console.log(`DB connected`)) )();
+// ( () => (console.log(`DB connected`)) )();
