@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="language">
+      <li>Js</li>
+    </ul>
+  </body>
+  <script>
+    // Not optimised as the whole tree is traversed
+    // Avoid innerHTML
+    function addLanguage(langName){
+        const li = document.createElement("li")
+        li.innerHTML = `${langName}`
+        document.querySelector(".language").appendChild(li)
+    }
+
+    // Optimised approach
+    // Append a Node
+    function optimsisedAddLanguage(langName){
+        const li = document.createElement("li")
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector(".language").appendChild(li)
+    }
+    optimsisedAddLanguage("Optimised")
+    addLanguage("Ruby")
+
+    // Replace a li element 
+    const selector_1 = document.querySelector("li:nth-child(2)")
+    const newLi = document.createElement("li")
+    newLi.textContent = "Demo"
+    selector_1.replaceWith(newLi)
+
+    // Replace by directly injecting HTML
+    const selector_2 = document.querySelector("li:nth-child(1)")
+    selector_2.outerHTML = "<li>HTML List</li>"
+
+    // Remove a child
+    const selector_3 = document.querySelector("li:nth-child(1)")
+    selector_3.remove(7)
+
+  </script>
+</html>
