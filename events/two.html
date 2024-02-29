@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body style="background-color: black; color: white">
+    <h1 id="header">Hello World</h1>
+    <button id="stopButton">Stop</button>
+    <script>
+      const hello = function () {
+        console.log("Hello Daksh");
+      };
+      const change = function () {
+        document.querySelector("h1").innerHTML = "Daksh on top";
+      };
+      const timeOut = setTimeout(change, 5000);
+
+      // How to stop the timeout when needed
+      document.querySelector("#stopButton").addEventListener("click", () => {
+        clearTimeout(timeOut);
+        console.log("Timeout is stopped");
+      });
+    </script>
+  </body>
+</html>
