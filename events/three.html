@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: black; color: white">
+    <h1 id="header">Hello World</h1>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+    <script>
+      const daksh = function () {
+        console.log("Daksh", Date.now());
+      };
+      let interval;
+      document.querySelector("#start").addEventListener("click", () => {
+        interval = setInterval(daksh, 1000);
+      });
+      document.querySelector("#stop").addEventListener("click", () => {
+        clearInterval(interval);
+      });
+    </script>
+  </body>
+</html>
