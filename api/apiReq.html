@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body style="background-color: maroon; color: white">
+    <div class="container">
+      <div class="w3-card">
+        <img
+          id="uImage"
+          src="https://i.stack.imgur.com/l60Hf.png"
+          style="height: 500px; width: 500px"
+          alt="Cooking images wait.."
+        />
+        <div class="w3-container w3-center">
+          <p>Followers</p>
+          <p id="followers">1</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      let followers;
+      let userImage;
+      const reqURL = "https://api.github.com/users/Dakshsinh";
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", reqURL);
+      // continue check the change in state
+      xhr.onreadystatechange = function () {
+        xhr.readyState;
+        if (xhr.readyState === 4) {
+          const data = JSON.parse(this.responseText);
+          followers = data.followers;
+          userImage = data.avatar_url;
+          console.log(userImage);
+          document.querySelector("#uImage").src = userImage;
+          document.querySelector("#followers").innerHTML = followers;
+        }
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>
